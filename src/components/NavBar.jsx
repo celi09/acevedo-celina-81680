@@ -8,13 +8,11 @@ const NavBar = () => {
 
             {/*IZQUIERDA*/} 
             <div className="nav-left">
-                <a className='anchor-nav' href="">Mujer</a>
-                <a className='anchor-nav' href="">Furor</a>
-                <a className='anchor-nav' href="">New Trend</a>
-                <a className='anchor-nav' href="">Rebajas</a>
-                <a className='anchor-nav' href="">INFO</a>
-                    
-                
+                <a className="anchor-nav" href="#mujer">Mujer</a>
+                <a className="anchor-nav" href="#furor">Furor</a>
+                <a className="anchor-nav" href="#newtrend">New Trend</a>
+                <a className="anchor-nav" href="#rebajas">Rebajas</a>
+                <a className="anchor-nav" href="#unfo">INFO</a>
             </div>
 
             {/*CENTRO*/}
