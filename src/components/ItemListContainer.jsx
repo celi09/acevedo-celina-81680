@@ -1,4 +1,4 @@
-const ItemListContainer = ({mensaje})=>{
+const ItemListContainer = ({mensaje}) => {
 
     return(
         <div>
@@ -6,4 +6,5 @@ const ItemListContainer = ({mensaje})=>{
         </div>
     )
 }
+
 export default ItemListContainer

@@ -1,5 +1,5 @@
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-const CartWidget = ()=> {
+const CartWidget = () => {
     console.log('CartWidget')
     return(
         <div>

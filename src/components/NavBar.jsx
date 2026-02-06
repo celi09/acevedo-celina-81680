@@ -12,7 +12,7 @@ const NavBar = () => {
                 <a className="anchor-nav" href="#furor">Furor</a>
                 <a className="anchor-nav" href="#newtrend">New Trend</a>
                 <a className="anchor-nav" href="#rebajas">Rebajas</a>
-                <a className="anchor-nav" href="#unfo">INFO</a>
+                <a className="anchor-nav" href="#info">INFO</a>
             </div>
 
             {/*CENTRO*/}
