@@ -3,7 +3,7 @@ import Item from './Item'
 
 const ItemList = ({data}) => {
     return(
-        <div style = {{display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap'}}>
+        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
             {data.map((prod) => <Item key={prod.id} prod={prod}/>)} 
         </div>
     )

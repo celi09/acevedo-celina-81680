@@ -5,7 +5,7 @@ const productos = [
         description: "Pantalón de fit recto con silueta clásica y líneas limpias.",
         stock: 21,
         price: 1599,
-        category: 'Mujer',
+        category: 'Rebajas',
         img: 'https://f.fcdn.app/imgs/43e5e5/www.danielcassin.com.uy/dcs/c0cc/webp/catalogo/226213503301-002-01/1500-1500/pantalon-tilo-negro.jpg'
     },
     {
@@ -20,7 +20,7 @@ const productos = [
     {
         id:'03',
         name: 'PANTALON CIDER ESTAMPADO',
-        description: "Pantalon jean, tajo, flare y calce alto",
+        description: "Pantalon jean, tajo, flare y calce alto.",
         stock: 45,
         price: 2100,
         category: 'New Trend',
@@ -39,16 +39,46 @@ const productos = [
 ]
 
 let error = false
-export const getProducts = () => {
-    return new Promise((resolve, reject)=>{
+
+export const getCategories = () => [...new Set(productos.map((p) => p.category))]
+
+export const getProductsByCategory = (category) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
+            if (error) {
+                reject('⚠️ Hubo un error, intente más tarde ⚠️')
+            } else {
+                const filtered = productos.filter((p) => p.category === category)
+                resolve(filtered)
+            }
+        }, 1500)
+    })
+}
+
+export const getProducts = ()=> {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
             if(error){
-                //algo paso y no se resuelve
-                reject('🚨 Hubo un error, intente más tarde 🚨')
+                //algo pasó y no se resuleve
+                reject('⚠️ Hubo un error, intente más tarde ⚠️')
             }else{
-                //todo bien y se resuelve
+                //sale todo bien y se resuelve
                 resolve(productos)
             }
-        }, 3000)
+        },3000)
+    })
+}
+
+export const getOneProduct = (id)=> {
+    return new Promise ((resolve, reject)=>{
+        setTimeout(()=>{
+            if(error){
+                reject('El producto no existe 🚨')
+            }else{
+                // resolve(productos[1])//harcodeado
+                let products = productos.find((prod)=> prod.id === id)
+                resolve(products)
+            }
+        },2000)
     })
 }

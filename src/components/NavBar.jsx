@@ -1,32 +1,38 @@
 import '../assets/css/NavBar.css'
+import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from './CartWidget.jsx'
+import { getCategories } from '../mock/asyncMock'
 
 const NavBar = () => {
-    console.log('NavBar')
+    const categories = getCategories()
+
     return (
-        <nav className="nav-container">
-
-            {/*IZQUIERDA*/} 
-            <div className="nav-left">
-                <a className="anchor-nav" href="#mujer">Mujer</a>
-                <a className="anchor-nav" href="#furor">Furor</a>
-                <a className="anchor-nav" href="#newtrend">New Trend</a>
-                <a className="anchor-nav" href="#rebajas">Rebajas</a>
-                <a className="anchor-nav" href="#info">INFO</a>
-            </div>
-
-            {/*CENTRO*/}
-            <div className="nav-center">
-                <img src="/logo.png" alt="logo-pagina" className="logo" />
-            </div>
-
-            {/*DERECHA*/}
-            <div className="nav-right">
-               <CartWidget />
-            </div>
-        </nav>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+            <img src="/logo.png" alt="logo-pagina" className="logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <NavDropdown title="Categorías" id="basic-nav-dropdown">
+              {categories.map((cat) => (
+                <NavDropdown.Item key={cat} as={Link} to={`/category/${cat}`}>
+                  {cat}
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
+          </Nav>
+        <CartWidget/>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     )
-
 }
 
 export default NavBar

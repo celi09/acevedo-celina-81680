@@ -1,25 +1,30 @@
 import { useEffect, useState } from "react"
-import { getProducts } from '../mock/asyncMock'
+import { useParams } from "react-router-dom"
+import { getProducts, getProductsByCategory } from '../mock/asyncMock'
 import ItemList from './ItemList'
 
-const ItemListContainer = ({mensaje}) => {
+const ItemListContainer = ({ mensaje }) => {
+    const { category } = useParams()
     const [data, setData] = useState([])
-    console.log('ItemListContainer')
 
-    //console.log(getProducts(), 'promesa')
-    //getProducts().then((res) => console.log(res, 'respuesta exitosa'))
-    useEffect(() => { 
-        getProducts()
-        .then((res) =>  setData(res))
-        .catch((error) => console.log(error))
-    },[]) //quiero que se ejecute una vez entonces array de depen vacio
+    useEffect(() => {
+        if (category) {
+            getProductsByCategory(category)
+                .then((res) => setData(res))
+                .catch((error) => console.log(error))
+        } else {
+            getProducts()
+                .then((res) => setData(res))
+                .catch((error) => console.log(error))
+        }
+    }, [category])
 
-    console.log(data)
-    return(
+    const titulo = category ? `Categoría: ${category}` : (mensaje || 'Productos')
+
+    return (
         <div>
-            <h1>{mensaje}</h1>
-            {/* {data.map((producto) => <p key={producto.id} >{producto.name}</p>)} */}
-            <ItemList data ={data}/>
+            <h1>{titulo}</h1>
+            <ItemList data={data} />
         </div>
     )
 }
