@@ -22,14 +22,6 @@ const ItemCount = ({stock}) => {
         setComprar(!comprar)
     }
 
-    //SE EJECUTA SIEMPRE
-    useEffect(()=>{
-        //CODIGO
-        //CASI NUNCA / NUNCA
-        console.log('Me ejecuto SIEMPRE')
-    })
-
-
     //SE EJECUTE UNA SOLA VEZ
 
     useEffect(()=>{
@@ -46,17 +38,6 @@ const ItemCount = ({stock}) => {
         //CASI SIEMPRE
         console.log('ME EJECUTO UNA SOLA VEZ, CUANDO SE MONTA EL COMPONENTE Y SIEMPRE QUE COMPRAR CAMBIE', comprar)
     },[comprar])
-
-
-    useEffect(()=>{
-        //CODIGO
-        //CASI NUNCA
-        console.log('con eventListener')
-        return()=>{
-            console.log('efecto de limpieza')
-        }
-    },[])
-
 
     return(
         <div>
