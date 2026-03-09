@@ -2,7 +2,7 @@
 
 Este proyecto fue realizado en el curso de ***React con JS en Coderhouse***. Se trata de una tienda de ropa online que permite navegar en las diferentes categorías, ver los detalles de cada artículo y gestionar el carrito de compras.
 
-![appCoral](/public/readme.png)
+![appCoral](public/readme.png)
 
 ### Instalación ⚙️
 
@@ -15,7 +15,7 @@ Este proyecto fue realizado en el curso de ***React con JS en Coderhouse***. Se 
 
 ### Version Host 💻
 
-Si desea ver el proyecto online, puede ingresar al siguiente link: [Coder App](https://coder-flex-81680.vercel.app/)
+Si desea ver el proyecto online, puede ingresar al siguiente link: [Celina App](https://acevedo-celina-81680.vercel.app/)
 
 ### Funcionalidades 🛠
 
@@ -40,6 +40,7 @@ Si desea ver el proyecto online, puede ingresar al siguiente link: [Coder App](h
 - [React Icons](https://react-bootstrap.netlify.app): librería de iconos.
 - [React Router Dom](https://reactrouter.com/): utilizada para implementar la navegación por rutas.
 - [Firebase](https://firebase.google.com/): utilizada como base datos.
+- [Sweetalert2](https://sweetalert2.github.io/): Modales de confirmación.
 
 #### Desarrollado por 👩‍💻
 
