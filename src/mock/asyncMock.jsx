@@ -19,8 +19,8 @@ const productos = [
     },
     {
         id:'03',
-        name: 'PANTALON CIDER ESTAMPADO',
-        description: "Pantalon jean, tajo, flare y calce alto.",
+        name: 'PANTALÓN CIDER ESTAMPADO',
+        description: "Pantalón jean, tajo, flare y calce alto.",
         stock: 45,
         price: 2100,
         category: 'New Trend',

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { HiOutlineMagnifyingGlass, HiOutlineUser, HiOutlineShoppingBag } from 'react-icons/hi2'
-import { useCart } from '../context/CartContext'
+import { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
+import { Badge } from "react-bootstrap";
 
 const iconLinkStyle = {
     display: 'flex',
@@ -11,7 +13,7 @@ const iconLinkStyle = {
 }
 
 const CartWidget = () => {
-    const { cartCount } = useCart()
+    const {cartQuantity, cart} = useContext(CartContext)
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -23,7 +25,11 @@ const CartWidget = () => {
             </Link>
             <Link to="/cart" style={{ ...iconLinkStyle, gap: '0.25rem' }} title="Carrito" aria-label="Carrito">
                 <HiOutlineShoppingBag size={22} />
-                <span style={{ fontWeight: 'bold', fontSize: '0.95rem' }}>{cartCount}</span>
+                {cart.length > 0 && (
+                    <Badge bg="dark" style={{ fontWeight: 'bold', fontSize: '0.95rem' }}>
+                        {cartQuantity()}
+                    </Badge>
+                )}
             </Link>
         </div>
     )

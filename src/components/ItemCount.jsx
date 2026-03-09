@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { useCart } from '../context/CartContext'
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, onAdd }) => {
     const [count, setCount] = useState(1)
-    const { addToCart } = useCart()
 
     const sumar = () => {
         if (count < stock) setCount(count + 1)
@@ -14,7 +12,7 @@ const ItemCount = ({ stock }) => {
         if (count > 0) setCount(count - 1)
     }
 
-    const purchase = () => addToCart(count)
+    const purchase = () => onAdd(count)
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>

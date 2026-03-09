@@ -1,56 +1,45 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import ItemCount from './ItemCount'
+import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const ItemDetail = ({ detail }) => {
-    if (!detail) return null
+    const { addItem } = useContext(CartContext)
+    const [purchase, setPurchase] = useState(false)
 
-    const containerStyle = {
-        maxWidth: 1100,
-        margin: '0 auto',
-        padding: '2rem 1rem',
-        display: 'flex',
-        gap: '2rem',
-        flexWrap: 'wrap',
-        alignItems: 'flex-start',
+    const onAdd = (cantidad) => {
+        addItem(detail, cantidad)
+        setPurchase(true)
+        Swal.fire({
+        position:'top-end',
+        icon:'success',
+        title:`Agregaste ${detail.name} a tu carrito`,
+        showCancelButton:false,
+        showConfirmButton:false,
+        timer:1000
+        })
     }
-
-    const imageWrapStyle = {
-        flex: '1 1 320px',
-        maxWidth: 480,
-    }
-
-    const imageStyle = {
-        width: '100%',
-        height: 'auto',
-        maxHeight: 500,
-        objectFit: 'contain',
-        display: 'block',
-    }
-
-    const detailsStyle = {
-        flex: '1 1 320px',
-        minWidth: 280,
-    }
-
-    const titleStyle = { marginBottom: '0.5rem', fontSize: '1.75rem' }
-    const priceStyle = { marginBottom: '1rem', fontSize: '1.25rem', fontWeight: 600 }
-    const textStyle = { marginBottom: '0.5rem', color: '#333' }
-    const stockStyle = { marginBottom: '1rem', fontSize: '0.95rem' }
-
     return (
-        <div style={containerStyle}>
-            <div style={imageWrapStyle}>
-                <img src={detail.img} alt={detail.name} style={imageStyle} />
-            </div>
-            <div style={detailsStyle}>
-                <h1 style={titleStyle}>{detail.name}</h1>
-                <p style={priceStyle}>UYU {detail.price}</p>
-                <p style={stockStyle}>Stock: {detail.stock}</p>
-                <ItemCount stock={detail.stock} />
-                <p style={{ ...textStyle, marginTop: '1.5rem' }}>{detail.description}</p>
-            </div>
+        <div style={{
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '10px'
+        }}>
+            <h1>Detalle del: {detail.name}</h1>
+            <img src={detail.img} alt={detail.name}/>
+            <p>{detail.description}</p>
+            <p>${detail.price},00</p>
+            <p>Stock disponible: {detail.stock} unidades</p>
+        {purchase 
+        ? <Link to='/cart' className='btn btn-dark'>Ir al Carrito</Link>
+        : <ItemCount stock={detail.stock} onAdd={onAdd}/>}
         </div>
     )
+    
 }
+
 
 export default ItemDetail
