@@ -1,16 +1,46 @@
-# React + Vite
+# MI E-COMMERCE: CORAL 🛍️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto fue realizado en el curso de ***React con JS en Coderhouse***. Se trata de una tienda de ropa online que permite navegar en las diferentes categorías, ver los detalles de cada artículo y gestionar el carrito de compras.
 
-Currently, two official plugins are available:
+![appCoral](/public/readme.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Instalación ⚙️
 
-## React Compiler
+1. Clone el repositorio.
+2. Muevase a la carpeta creada con el comando `cd nombre-de-la-carpeta`
+3. Ejecute el comando `npm install` para instalar dependecias y crear la carpeta `node_modules`.
+4. Ejecute el comando `npm run dev` para levantar la app en un entorno local.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+>Es necesario contar con Node v22.11.0 instalado
 
-## Expanding the ESLint configuration
+### Version Host 💻
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Si desea ver el proyecto online, puede ingresar al siguiente link: [Coder App](https://coder-flex-81680.vercel.app/)
+
+### Funcionalidades 🛠
+
+-Visualización del catálogo de productos.
+
+-Navegación por categorías.
+
+-Vista detallada de cada producto.
+
+-Agregar productos al carrito.
+
+-Eliminar productos del carrito.
+
+-Confirmación antes de eliminar artículos.
+
+-Interfaz moderna y responsive.
+
+
+### Librerias utilizadas 📖 
+
+- [React Bootstrap](https://react-bootstrap.netlify.app): utilizada para el styling de la app.
+- [React Icons](https://react-bootstrap.netlify.app): librería de iconos.
+- [React Router Dom](https://reactrouter.com/): utilizada para implementar la navegación por rutas.
+- [Firebase](https://firebase.google.com/): utilizada como base datos.
+
+#### Desarrollado por 👩‍💻
+
+***Celina Acevedo***

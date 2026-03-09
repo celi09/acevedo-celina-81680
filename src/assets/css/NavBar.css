@@ -1,3 +1,43 @@
+/* Tono gris claro para la barra de navegación (un poco más claro) */
+.navbar-tono {
+    background-color: #E2E0DB !important;
+}
+
+/* Logo centrado en el navbar; enlaces a la izquierda e íconos a la derecha */
+.navbar-tono .navbar-container-extremos {
+    display: flex !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+.navbar-tono .navbar-brand {
+    position: absolute !important;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.navbar-tono .navbar-collapse {
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-basis: auto !important;
+    justify-content: space-between !important;
+    align-items: center;
+}
+.navbar-tono .navbar-nav {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+/* Cuando no está seleccionado: letras en negro (Home, Categorías, ítems del dropdown) */
+.navbar-tono .nav-link:not(.active),
+.navbar-tono .dropdown-toggle:not(.active) {
+    color: #000 !important;
+}
+.navbar-tono .dropdown-item {
+    color: #000;
+}
+
 .nav-container {
     background-color: whitesmoke;
     padding: 1rem;

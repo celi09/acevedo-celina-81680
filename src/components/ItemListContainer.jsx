@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemList from './ItemList'
 import Loader from './Loader'
-import {  collection, getDocs, query, where } from "firebase/firestore"
+import { collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../service/firebase"
 
 const ItemListContainer = ({ mensaje }) => {
@@ -27,17 +27,20 @@ const ItemListContainer = ({ mensaje }) => {
         .finally(()=> setLoading(false))
    },[type])
   
-    return(
+    return (
         <>
-        {
-            loading 
-            ? <Loader text={type ? 'Cargando Categoría...' : 'Cargando Productos...'}/>
-            : <div>
-            <h1>{mensaje}{type && <span style={{textTransform:'capitalize'}}>{type}</span>}</h1>
-            
-            <ItemList data={data}/>
-        </div>
-        }
+            {loading
+                ? <Loader text={type ? 'Cargando Categoría...' : 'Cargando Productos...'} />
+                : (
+                    <div className="pb-4">
+                        <div className="px-3 pt-3 pb-2">
+                            <h1 className="h4 fw-bold">
+                                {mensaje}{type && <span style={{ textTransform: 'capitalize' }}> {type}</span>}
+                            </h1>
+                        </div>
+                        <ItemList data={data} />
+                    </div>
+                )}
         </>
     )
 }

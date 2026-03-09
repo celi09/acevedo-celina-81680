@@ -1,11 +1,20 @@
 import React from 'react'
 import Item from './Item'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-const ItemList = ({data}) => {
-    return(
-        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
-            {data.map((prod) => <Item key={prod.id} prod={prod}/>)} 
-        </div>
+const ItemList = ({ data }) => {
+    return (
+        <Container className="py-3">
+            <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+                {data.map((prod) => (
+                    <Col key={prod.id}>
+                        <Item prod={prod} />
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     )
 }
 

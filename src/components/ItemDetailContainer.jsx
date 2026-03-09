@@ -27,20 +27,20 @@ const ItemDetailContainer = () => {
        },[id])
    
      
-     if(invalid){
-       return(
-         <div>
-           <h2>El prod no existe!</h2>
-           <Link className='btn btn-dark' to='/'>Volver a home</Link>
-         </div>
-       )
-     }
-   
-     return (
-       <div>
-          {cargando ? <Loader text={'Cargando Detalle...'}/> :<ItemDetail detail={detail}/>}
-       </div>
-     )
+    if (invalid) {
+        return (
+            <div className="container py-5 text-center">
+                <h2>El producto no existe</h2>
+                <Link className="btn btn-dark mt-2" to="/">Volver a home</Link>
+            </div>
+        )
+    }
+
+    return (
+        <div className="min-vh-50">
+            {cargando ? <Loader text="Cargando Detalle..." /> : <ItemDetail detail={detail} />}
+        </div>
+    )
    }
 
 export default ItemDetailContainer

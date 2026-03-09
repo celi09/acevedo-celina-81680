@@ -12,10 +12,12 @@ export const CartProvider = ({children})=>{
 
     const addItem = (item, qty)=>{
         if(IsInCart(item.id)){
+            const maxStock = (cart.find(p => p.id === item.id)?.stock ?? item.stock ?? 99)
             setCart(
                 cart.map((prod)=>{
                     if(prod.id === item.id){
-                        return {...prod, quantity: prod.quantity + qty}
+                        const newQty = Math.min(prod.quantity + qty, maxStock)
+                        return {...prod, quantity: newQty}
                     }else{
                         return prod
                     }
@@ -23,7 +25,7 @@ export const CartProvider = ({children})=>{
             )
 
         }else{
-            setCart([...cart, {...item, quantity:qty}])
+            setCart([...cart, {...item, quantity: qty, stock: item.stock ?? 99}])
         }
     }
 
@@ -33,6 +35,21 @@ export const CartProvider = ({children})=>{
 
     const removeItem = (id)=> {
         setCart(cart.filter((prod)=> prod.id !== id))
+    }
+
+    const updateQuantity = (id, newQty)=> {
+        if (newQty <= 0) {
+            setCart(cart.filter((prod)=> prod.id !== id))
+            return
+        }
+        const maxStock = (p) => p.stock ?? 99
+        setCart(
+            cart.map((prod)=>
+                prod.id === id
+                    ? { ...prod, quantity: Math.min(newQty, maxStock(prod)) }
+                    : prod
+            )
+        )
     }
 
     const IsInCart =(id)=> {
@@ -48,7 +65,7 @@ const cartQuantity = ()=> {
 }
     
     return(
-        <CartContext.Provider value={{cart, addItem, clear, removeItem, total, cartQuantity}}>
+        <CartContext.Provider value={{cart, addItem, clear, removeItem, updateQuantity, total, cartQuantity}}>
             {children}
         </CartContext.Provider>
     )

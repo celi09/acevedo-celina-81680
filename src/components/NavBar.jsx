@@ -1,5 +1,5 @@
 import '../assets/css/NavBar.css'
-import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -10,8 +10,8 @@ const categories = ['Furor', 'New Trend', 'Rebajas']
 
 const NavBar = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
+        <Navbar expand="lg" className="navbar-tono">
+            <Container fluid className="navbar-container-extremos">
                 <Navbar.Brand as={NavLink} to="/">
                     <img src="/logo.png" alt="logo-pagina" className="logo" />
                 </Navbar.Brand>
